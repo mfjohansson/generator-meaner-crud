@@ -51,7 +51,7 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-meaner-crud from npm, run:
 
 ```
-$ npm install -g mfjohansson/generator-meancrud
+$ npm install -g mfjohansson/generator-meaner-crud
 ```
 
 Finally, initiate the generator:
