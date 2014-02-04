@@ -23,7 +23,7 @@ EntityGenerator.prototype.files = function files() {
 
   this.template('app_controller.js', 'app/controllers/' + sluggy + 's.js');
   this.template('app_model.js', 'app/models/' + sluggy + 's.js');
-  this.template('app_route.js', 'app/Zroutes/' + sluggy + 's.js');
+  this.template('app_route.js', 'app/routes/' + sluggy + 's.js');
   this.template('public_js_controllers.js', 'public/js/controllers/' + sluggy + 's.js');
   this.template('public_js_services.js', 'public/js/services/' + sluggy + 's.js');
   this.template('public_views_create.html', 'public/views/' + sluggy + 's/create.html');
