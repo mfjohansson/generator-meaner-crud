@@ -21,14 +21,14 @@ EntityGenerator.prototype.files = function files() {
 
 	var sluggy = _.slugify(this.name);
 
-  this.template('app_controller.js', 'app\\controllers\\' + sluggy + 's.js');
-  this.template('app_model.js', 'app\\models\\' + sluggy + 's.js');
-  this.template('public_js_controllers.js', 'public\\js\\controllers\\' + sluggy + 's.js');
-  this.template('public_js_services.js', 'public\\js\\services\\' + sluggy + 's.js');
-  this.template('public_views_create.html', 'public\\views\\' + sluggy + 's\\create.html');
-  this.template('public_views_edit.html', 'public\\views\\' + sluggy + 's\\edit.html');
-  this.template('public_views_list.html', 'public\\views\\' + sluggy + 's\\list.html');
-  this.template('public_views_view.html', 'public\\views\\' + sluggy + 's\\view.html');
+  this.template('app_controller.js', 'app/controllers/' + sluggy + 's.js');
+  this.template('app_model.js', 'app/models/' + sluggy + 's.js');
+  this.template('public_js_controllers.js', 'public/js/controllers/' + sluggy + 's.js');
+  this.template('public_js_services.js', 'public/js/services/' + sluggy + 's.js');
+  this.template('public_views_create.html', 'public/views/' + sluggy + 's/create.html');
+  this.template('public_views_edit.html', 'public/views/' + sluggy + 's/edit.html');
+  this.template('public_views_list.html', 'public/views/' + sluggy + 's/list.html');
+  this.template('public_views_view.html', 'public/views/' + sluggy + 's/view.html');
 
 String.prototype.splice = function( idx, rem, s ) {
     return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
@@ -58,7 +58,7 @@ String.prototype.splice = function( idx, rem, s ) {
   }
 
   // inject app
-  var appPath = "public\\js\\app.js",
+  var appPath = "public/js/app.js",
 	appFile = this.readFileAsString(appPath);
 	if(appFile.indexOf('.' + sluggy + 's') === -1)
   {
@@ -69,7 +69,7 @@ String.prototype.splice = function( idx, rem, s ) {
   }
 
   // inject routes
-  var routesPath = "config\\routes.js",
+  var routesPath = "config/routes.js",
 	routesFile = this.readFileAsString(routesPath);
 	if(routesFile.indexOf('../app/controllers/' + sluggy + 's') === -1)
   {
@@ -88,7 +88,7 @@ String.prototype.splice = function( idx, rem, s ) {
 	}
 
 	  // inject authorization.js
-  var authPath = "config\\middlewares\\authorization.js",
+  var authPath = "config/middlewares/authorization.js",
 	authFile = this.readFileAsString(authPath);
 	if(authFile.indexOf('.' + sluggy + ' = {') === -1)
   {
@@ -104,7 +104,7 @@ String.prototype.splice = function( idx, rem, s ) {
   }
 
 	// inject foot.jade
-  var footJadePath = "app\\views\\includes\\foot.jade",
+  var footJadePath = "app/views/includes/foot.jade",
 	footJadeFile = this.readFileAsString(footJadePath);
 	if(footJadeFile.indexOf('/' + sluggy + 's.js\'') === -1)
   {
@@ -118,7 +118,7 @@ String.prototype.splice = function( idx, rem, s ) {
   }
 
   // inject headerJs
-  var headerPath = "public\\js\\controllers\\header.js",
+  var headerPath = "public/js/controllers/header.js",
   headerFile = this.readFileAsString(headerPath);
   if(headerFile.indexOf(': "' + this.name + 's",') === -1)
   {
