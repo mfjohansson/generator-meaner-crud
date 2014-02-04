@@ -23,6 +23,7 @@ EntityGenerator.prototype.files = function files() {
 
   this.template('app_controller.js', 'app/controllers/' + sluggy + 's.js');
   this.template('app_model.js', 'app/models/' + sluggy + 's.js');
+  this.template('app_route.js', 'app/Zroutes/' + sluggy + 's.js');
   this.template('public_js_controllers.js', 'public/js/controllers/' + sluggy + 's.js');
   this.template('public_js_services.js', 'public/js/services/' + sluggy + 's.js');
   this.template('public_views_create.html', 'public/views/' + sluggy + 's/create.html');
@@ -35,7 +36,7 @@ String.prototype.splice = function( idx, rem, s ) {
 };
 
   // inject config
-  var configPath = "public\\js\\config.js",
+  var configPath = "public/js/config.js",
   configFile = this.readFileAsString(configPath);
   if(configFile.indexOf('/' + sluggy + '/') === -1)
   {
@@ -66,41 +67,6 @@ String.prototype.splice = function( idx, rem, s ) {
   	var topBracketIndex = appFile.indexOf('\']);');
   	appFile = appFile.splice(topBracketIndex, 0, '\', \'mean.' + sluggy + 's');
 		this.write(appPath, appFile);
-  }
-
-  // inject routes
-  var routesPath = "config/routes.js",
-	routesFile = this.readFileAsString(routesPath);
-	if(routesFile.indexOf('../app/controllers/' + sluggy + 's') === -1)
-  {
-		var index = routesFile.indexOf("//Home route");
-		var newRoute = '//' + this.name + ' Routes\n' +
-	    '    var ' + sluggy + 's = require(\'../app/controllers/' + sluggy + 's\');\n' +
-	    '    app.get(\'/' + sluggy + 's\', ' + sluggy + 's.all);\n' +
-	    '    app.post(\'/' + sluggy + 's\', auth.requiresLogin, ' + sluggy + 's.create);\n' +
-	    '    app.get(\'/' + sluggy + 's/:' + sluggy + 'Id\', ' + sluggy + 's.show);\n' +
-	    '    app.put(\'/' + sluggy + 's/:' + sluggy + 'Id\', auth.requiresLogin, auth.' + sluggy + '.hasAuthorization, ' + sluggy + 's.update);\n' +
-	    '    app.del(\'/' + sluggy + 's/:' + sluggy + 'Id\', auth.requiresLogin, auth.' + sluggy + '.hasAuthorization, ' + sluggy + 's.destroy);\n\n' +
-	    '    //Finish with setting up the ' + sluggy + 'Id param\n    app.param(\'' + sluggy + 'Id\', ' + sluggy + 's.' + sluggy + ');\n\n    '
-
-		routesFile = routesFile.splice(index, 0, newRoute)
-		this.write(routesPath, routesFile);
-	}
-
-	  // inject authorization.js
-  var authPath = "config/middlewares/authorization.js",
-	authFile = this.readFileAsString(authPath);
-	if(authFile.indexOf('.' + sluggy + ' = {') === -1)
-  {
-  	authFile = authFile + '\n\nexports.' + sluggy + ' = {\n' +
-    '	hasAuthorization: function(req, res, next) {\n' +
-      '		if (req.' + sluggy + '.user.id != req.user.id) {\n' +
-      '			return res.send(401, \'User is not authorized\');\n' +
-      '		}\n' +
-      '		next();\n' +
-    '	}\n' +
-		'};';
-		this.write(authPath, authFile);
   }
 
 	// inject foot.jade
