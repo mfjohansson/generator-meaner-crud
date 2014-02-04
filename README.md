@@ -1,9 +1,9 @@
-# generator-meancrud
+# generator-meaner-crud
 
 A [Yeoman](http://yeoman.io) generator that's really just one subgenerator - "entity".  This will tie a new model type into the [Mean.io stack](https://github.com/linnovate/mean), using the same conventions as the "Articles example" (https://github.com/linnovate/mean/blob/master/app/models/article.js, etc).
 
 ```
-$ yo meancrud:entity 'ThingIWantToModel'
+$ yo meaner-crud:entity 'ThingIWantToModel'
 ```
 
 This will create the following files:
@@ -46,10 +46,10 @@ $ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-meancrud from npm, run:
+To install generator-meaner-crud from npm, run:
 
 ```
-$ npm install -g generator-meancrud
+$ npm install -g generator-meaner-crud
 ```
 
 Finally, initiate the generator:
