@@ -1,5 +1,7 @@
 # generator-meaner-crud
 
+### Note: Currently under heavy rewriting
+
 A [Yeoman](http://yeoman.io) generator that's really just one subgenerator - "entity".  This will tie a new model type into the [Mean.io stack](https://github.com/linnovate/mean), using the same conventions as the "Articles example" (https://github.com/linnovate/mean/blob/master/app/models/article.js, etc).
 
 ```
@@ -49,7 +51,7 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-meaner-crud from npm, run:
 
 ```
-$ npm install -g generator-meaner-crud
+$ npm install -g mfjohansson/generator-meancrud
 ```
 
 Finally, initiate the generator:
