@@ -1,21 +1,21 @@
 {
-  "name": "generator-meancrud",
-  "version": "0.0.2",
+  "name": "generator-meaner-crud",
+  "version": "0.0.3",
   "description": "A Yeoman generator that will create add CRUD functionality for a new model in the Mean.io stack.",
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/MartyIce/generator-meancrud",
-  "bugs": "https://github.com/MartyIce/generator-meancrud/issues",
+  "homepage": "https://github.com/mfjohansson/generator-meancrud",
+  "bugs": "https://github.com/mfjohansson/generator-meancrud/issues",
   "author": {
     "name": "",
     "email": "",
-    "url": "https://github.com/MartyIce"
+    "url": "https://github.com/mfjohansson"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/MartyIce/generator-meancrud.git"
+    "url": "git://github.com/mfjohansson/generator-meancrud.git"
   },
   "scripts": {
     "test": "mocha"
