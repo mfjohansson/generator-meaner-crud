@@ -10,23 +10,23 @@ $ yo meaner-crud:entity 'ThingIWantToModel'
 
 This will create the following files:
 
-app\controllers\ThingIWantToModels.js
-app\models\ThingIWantToModels.js
-public\js\controllers\ThingIWantToModels.js
-public\js\services\ThingIWantToModels.js
-public\views\ThingIWantToModels\create.html
-public\views\ThingIWantToModels\edit.html
-public\views\ThingIWantToModels\list.html
-public\views\ThingIWantToModels\view.html
+- app\controllers\ThingIWantToModels.js
+- app\models\ThingIWantToModels.js
+- public\js\controllers\ThingIWantToModels.js
+- public\js\services\ThingIWantToModels.js
+- public\views\ThingIWantToModels\create.html
+- public\views\ThingIWantToModels\edit.html
+- public\views\ThingIWantToModels\list.html
+- public\views\ThingIWantToModels\view.html
 
 It will also add code to the following files to hook everything together (note, this is pretty fragile, dependent on the way the code currently looks in the mean.io stack above):
 
-public\js\config.js
-public\js\app.js
-config\routes.js
-config\middlewares\authorization.js
-app\views\includes\foot.jade
-public\js\controllers\header.js
+- public\js\config.js
+- public\js\app.js
+- config\routes.js
+- config\middlewares\authorization.js
+- app\views\includes\foot.jade
+- public\js\controllers\header.js
 
 ## Getting Started
 
