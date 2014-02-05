@@ -1,5 +1,7 @@
 # generator-meaner-crud
 
+_Based on how the MEAN project looked like at 2014-02-05._
+
 A [Yeoman](http://yeoman.io) generator that's really just one subgenerator - "entity".  This will tie a new model type into the [Mean.io stack](https://github.com/linnovate/mean), using the same conventions as the "Articles example" (https://github.com/linnovate/mean/blob/master/app/models/article.js, etc).
 
 ```
@@ -8,23 +10,23 @@ $ yo meaner-crud:entity 'ThingIWantToModel'
 
 This will create the following files:
 
-app\controllers\ThingIWantToModels.js
-app\models\ThingIWantToModels.js
-public\js\controllers\ThingIWantToModels.js
-public\js\services\ThingIWantToModels.js
-public\views\ThingIWantToModels\create.html
-public\views\ThingIWantToModels\edit.html
-public\views\ThingIWantToModels\list.html
-public\views\ThingIWantToModels\view.html
+- app\controllers\ThingIWantToModels.js
+- app\models\ThingIWantToModels.js
+- public\js\controllers\ThingIWantToModels.js
+- public\js\services\ThingIWantToModels.js
+- public\views\ThingIWantToModels\create.html
+- public\views\ThingIWantToModels\edit.html
+- public\views\ThingIWantToModels\list.html
+- public\views\ThingIWantToModels\view.html
 
 It will also add code to the following files to hook everything together (note, this is pretty fragile, dependent on the way the code currently looks in the mean.io stack above):
 
-public\js\config.js
-public\js\app.js
-config\routes.js
-config\middlewares\authorization.js
-app\views\includes\foot.jade
-public\js\controllers\header.js
+- public\js\config.js
+- public\js\app.js
+- config\routes.js
+- config\middlewares\authorization.js
+- app\views\includes\foot.jade
+- public\js\controllers\header.js
 
 ## Getting Started
 
@@ -49,7 +51,7 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-meaner-crud from npm, run:
 
 ```
-$ npm install -g generator-meaner-crud
+$ npm install -g mfjohansson/generator-meaner-crud
 ```
 
 Finally, initiate the generator:

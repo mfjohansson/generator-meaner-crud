@@ -1,10 +1,11 @@
+'use strict';
+
 /**
  * Module dependencies.
  */
-
- var mongoose = require('mongoose'),
+var mongoose = require('mongoose'),
     <%= entityName %> = mongoose.model('<%= entityName %>'),
-    _ = require('underscore');
+    _ = require('lodash');
 
 
 /**
@@ -47,7 +48,14 @@ exports.update = function(req, res) {
     <%= _.slugify(entityName) %> = _.extend(<%= _.slugify(entityName) %>, req.body);
 
     <%= _.slugify(entityName) %>.save(function(err) {
-        res.jsonp(<%= _.slugify(entityName) %>);
+        if (err) {
+            return res.send('users/signup', {
+                errors: err.errors,
+                <%= _.slugify(entityName) %>: <%= _.slugify(entityName) %>
+            });
+        } else {
+            res.jsonp(<%= _.slugify(entityName) %>);
+        }
     });
 };
 
@@ -59,8 +67,9 @@ exports.destroy = function(req, res) {
 
     <%= _.slugify(entityName) %>.remove(function(err) {
         if (err) {
-            res.render('error', {
-                status: 500
+            return res.send('users/signup', {
+                errors: err.errors,
+                <%= _.slugify(entityName) %>: <%= _.slugify(entityName) %>
             });
         } else {
             res.jsonp(<%= _.slugify(entityName) %>);

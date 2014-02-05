@@ -1,6 +1,6 @@
 {
   "name": "generator-meaner-crud",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Yeoman generator that will create add CRUD functionality for a new model in the Mean.io stack.",
   "keywords": [
     "yeoman-generator"
@@ -24,7 +24,10 @@
     "yeoman-generator": "~0.14.0"
   },
   "devDependencies": {
-    "mocha": "~1.14.0"
+    "mocha": "~1.14.0",
+    "grunt": "~0.4.2",
+    "grunt-string-replace": "~0.2.7",
+    "grunt-curl": "~1.4.0"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

@@ -1,17 +1,19 @@
+'use strict';
+
 angular.module('mean.<%= _.slugify(entityName) %>s').controller('<%= entityName %>sController', ['$scope', '$routeParams', '$location', 'Global', '<%= entityName %>s', function ($scope, $routeParams, $location, Global, <%= entityName %>s) {
     $scope.global = Global;
 
     $scope.create = function() {
         var <%= _.slugify(entityName) %> = new <%= entityName %>s({
-            name: this.name,
-            description: this.description
+            title: this.title,
+            content: this.content
         });
         <%= _.slugify(entityName) %>.$save(function(response) {
-            $location.path("<%= _.slugify(entityName) %>s");
+            $location.path('<%= _.slugify(entityName) %>s/' + response._id);
         });
 
-        this.name = "";
-        this.description = "";
+        this.title = '';
+        this.content = '';
     };
 
     $scope.remove = function(<%= _.slugify(entityName) %>) {
@@ -19,7 +21,7 @@ angular.module('mean.<%= _.slugify(entityName) %>s').controller('<%= entityName 
             <%= _.slugify(entityName) %>.$remove();
 
             for (var i in $scope.<%= _.slugify(entityName) %>s) {
-                if ($scope.<%= _.slugify(entityName) %>s[i] == <%= _.slugify(entityName) %>) {
+                if ($scope.<%= _.slugify(entityName) %>s[i] === <%= _.slugify(entityName) %>) {
                     $scope.<%= _.slugify(entityName) %>s.splice(i, 1);
                 }
             }
@@ -38,7 +40,7 @@ angular.module('mean.<%= _.slugify(entityName) %>s').controller('<%= entityName 
         <%= _.slugify(entityName) %>.updated.push(new Date().getTime());
 
         <%= _.slugify(entityName) %>.$update(function() {
-            $location.path('<%= _.slugify(entityName) %>s');
+            $location.path('<%= _.slugify(entityName) %>s/' + <%= _.slugify(entityName) %>._id);
         });
     };
 

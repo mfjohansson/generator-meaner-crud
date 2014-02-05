@@ -1,8 +1,9 @@
+'use strict';
+
 /**
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    config = require('../../config/config'),
     Schema = mongoose.Schema;
 
 
@@ -14,12 +15,12 @@ var <%= entityName %>Schema = new Schema({
         type: Date,
         default: Date.now
     },
-    name: {
+    title: {
         type: String,
         default: '',
         trim: true
     },
-    description: {
+    content: {
         type: String,
         default: '',
         trim: true
@@ -33,9 +34,9 @@ var <%= entityName %>Schema = new Schema({
 /**
  * Validations
  */
-<%= entityName %>Schema.path('name').validate(function(name) {
-    return name.length;
-}, 'Name cannot be blank');
+<%= entityName %>Schema.path('title').validate(function(title) {
+    return title.length;
+}, 'Title cannot be blank');
 
 /**
  * Statics
