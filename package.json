@@ -5,17 +5,17 @@
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/mfjohansson/generator-meancrud",
-  "bugs": "https://github.com/mfjohansson/generator-meancrud/issues",
+  "homepage": "https://github.com/mfjohansson/generator-meaner-crud",
+  "bugs": "https://github.com/mfjohansson/generator-meaner-crud/issues",
   "author": {
-    "name": "",
+    "name": "Magnus Johansson",
     "email": "",
     "url": "https://github.com/mfjohansson"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mfjohansson/generator-meancrud.git"
+    "url": "git://github.com/mfjohansson/generator-meaner-crud.git"
   },
   "scripts": {
     "test": "mocha"
