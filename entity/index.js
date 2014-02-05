@@ -90,7 +90,7 @@ String.prototype.splice = function( idx, rem, s ) {
   if(headerFile.indexOf(': "' + this.name + 's",') === -1)
   {
     var injectIndex = headerFile.indexOf('];');
-    headerFile = headerFile.splice(injectIndex, 0, '    {\n      "title": "' + this.name + 's",\n      "link": "' + sluggy + 's"\n    },\n');
+    headerFile = headerFile.splice(injectIndex, 0, ', {\n      \'title\': \'' + this.name + 's\',\n      \'link\': \'' + sluggy + 's\'\n    }\n');
 
     this.write(headerPath, headerFile);
   }
