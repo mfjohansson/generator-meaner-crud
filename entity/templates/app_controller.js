@@ -9,92 +9,92 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Find <%= _.slugify(entityName) %> by id
+ * Find <%= slugName %> by id
  */
-exports.<%= _.slugify(entityName) %> = function(req, res, next, id) {
-    <%= entityName %>.load(id, function(err, <%= _.slugify(entityName) %>) {
+exports.<%= slugName %> = function(req, res, next, id) {
+    <%= entityName %>.load(id, function(err, <%= slugName %>) {
         if (err) return next(err);
-        if (!<%= _.slugify(entityName) %>) return next(new Error('Failed to load <%= _.slugify(entityName) %> ' + id));
-        req.<%= _.slugify(entityName) %> = <%= _.slugify(entityName) %>;
+        if (!<%= slugName %>) return next(new Error('Failed to load <%= slugName %> ' + id));
+        req.<%= slugName %> = <%= slugName %>;
         next();
     });
 };
 
 /**
- * Create a <%= _.slugify(entityName) %>
+ * Create a <%= slugName %>
  */
 exports.create = function(req, res) {
-    var <%= _.slugify(entityName) %> = new <%= entityName %>(req.body);
-    <%= _.slugify(entityName) %>.user = req.user;
+    var <%= slugName %> = new <%= entityName %>(req.body);
+    <%= slugName %>.user = req.user;
 
-    <%= _.slugify(entityName) %>.save(function(err) {
+    <%= slugName %>.save(function(err) {
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
-                <%= _.slugify(entityName) %>: <%= _.slugify(entityName) %>
+                <%= slugName %>: <%= slugName %>
             });
         } else {
-            res.jsonp(<%= _.slugify(entityName) %>);
+            res.jsonp(<%= slugName %>);
         }
     });
 };
 
 /**
- * Update a <%= _.slugify(entityName) %>
+ * Update a <%= slugName %>
  */
 exports.update = function(req, res) {
-    var <%= _.slugify(entityName) %> = req.<%= _.slugify(entityName) %>;
+    var <%= slugName %> = req.<%= slugName %>;
 
-    <%= _.slugify(entityName) %> = _.extend(<%= _.slugify(entityName) %>, req.body);
+    <%= slugName %> = _.extend(<%= slugName %>, req.body);
 
-    <%= _.slugify(entityName) %>.save(function(err) {
+    <%= slugName %>.save(function(err) {
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
-                <%= _.slugify(entityName) %>: <%= _.slugify(entityName) %>
+                <%= slugName %>: <%= slugName %>
             });
         } else {
-            res.jsonp(<%= _.slugify(entityName) %>);
+            res.jsonp(<%= slugName %>);
         }
     });
 };
 
 /**
- * Delete an <%= _.slugify(entityName) %>
+ * Delete an <%= slugName %>
  */
 exports.destroy = function(req, res) {
-    var <%= _.slugify(entityName) %> = req.<%= _.slugify(entityName) %>;
+    var <%= slugName %> = req.<%= slugName %>;
 
-    <%= _.slugify(entityName) %>.remove(function(err) {
+    <%= slugName %>.remove(function(err) {
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
-                <%= _.slugify(entityName) %>: <%= _.slugify(entityName) %>
+                <%= slugName %>: <%= slugName %>
             });
         } else {
-            res.jsonp(<%= _.slugify(entityName) %>);
+            res.jsonp(<%= slugName %>);
         }
     });
 };
 
 /**
- * Show an <%= _.slugify(entityName) %>
+ * Show an <%= slugName %>
  */
 exports.show = function(req, res) {
-    res.jsonp(req.<%= _.slugify(entityName) %>);
+    res.jsonp(req.<%= slugName %>);
 };
 
 /**
  * List of <%= entityName %>s
  */
 exports.all = function(req, res) {
-    <%= entityName %>.find().sort('-created').populate('user', 'name username').exec(function(err, <%= _.slugify(entityName) %>s) {
+    <%= entityName %>.find().sort('-created').populate('user', 'name username').exec(function(err, <%= slugName %>s) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-            res.jsonp(<%= _.slugify(entityName) %>s);
+            res.jsonp(<%= slugName %>s);
         }
     });
 };

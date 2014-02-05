@@ -1,12 +1,12 @@
 'use strict';
 
-// <%= entityName %>s routes use <%= _.slugify(entityName) %>s controller
-var <%= _.slugify(entityName) %>s = require('../controllers/<%= _.slugify(entityName) %>s');
+// <%= entityName %>s routes use <%= slugName %>s controller
+var <%= slugName %>s = require('../controllers/<%= slugName %>s');
 var authorization = require('./middlewares/authorization');
 
 // <%= entityName %> authorization helpers
 var hasAuthorization = function(req, res, next) {
-	if (req.<%= _.slugify(entityName) %>.user.id !== req.user.id) {
+	if (req.<%= slugName %>.user.id !== req.user.id) {
         return res.send(401, 'User is not authorized');
     }
     next();
@@ -14,13 +14,13 @@ var hasAuthorization = function(req, res, next) {
 
 module.exports = function(app) {
 
-    app.get('/<%= _.slugify(entityName) %>s', <%= _.slugify(entityName) %>s.all);
-    app.post('/<%= _.slugify(entityName) %>s', authorization.requiresLogin, <%= _.slugify(entityName) %>s.create);
-    app.get('/<%= _.slugify(entityName) %>s/:<%= _.slugify(entityName) %>Id', <%= _.slugify(entityName) %>s.show);
-    app.put('/<%= _.slugify(entityName) %>s/:<%= _.slugify(entityName) %>Id', authorization.requiresLogin, hasAuthorization, <%= _.slugify(entityName) %>s.update);
-    app.del('/<%= _.slugify(entityName) %>s/:<%= _.slugify(entityName) %>Id', authorization.requiresLogin, hasAuthorization, <%= _.slugify(entityName) %>s.destroy);
+    app.get('/<%= slugName %>s', <%= slugName %>s.all);
+    app.post('/<%= slugName %>s', authorization.requiresLogin, <%= slugName %>s.create);
+    app.get('/<%= slugName %>s/:<%= slugName %>Id', <%= slugName %>s.show);
+    app.put('/<%= slugName %>s/:<%= slugName %>Id', authorization.requiresLogin, hasAuthorization, <%= slugName %>s.update);
+    app.del('/<%= slugName %>s/:<%= slugName %>Id', authorization.requiresLogin, hasAuthorization, <%= slugName %>s.destroy);
 
-    // Finish with setting up the <%= _.slugify(entityName) %>Id param
-    app.param('<%= _.slugify(entityName) %>Id', <%= _.slugify(entityName) %>s.<%= _.slugify(entityName) %>);
+    // Finish with setting up the <%= slugName %>Id param
+    app.param('<%= slugName %>Id', <%= slugName %>s.<%= slugName %>);
 
 };

@@ -12,6 +12,7 @@ var EntityGenerator = module.exports = function EntityGenerator(args, options, c
 
   console.log('You called the entity subgenerator with the argument ' + this.name + '.');
   this.entityName = this.name;
+  this.slugName = _.slugify(this.name);
 };
 
 util.inherits(EntityGenerator, yeoman.generators.NamedBase);

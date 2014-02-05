@@ -1,60 +1,60 @@
 'use strict';
 
-angular.module('mean.<%= _.slugify(entityName) %>s').controller('<%= entityName %>sController', ['$scope', '$routeParams', '$location', 'Global', '<%= entityName %>s', function ($scope, $routeParams, $location, Global, <%= entityName %>s) {
+angular.module('mean.<%= slugName %>s').controller('<%= entityName %>sController', ['$scope', '$routeParams', '$location', 'Global', '<%= entityName %>s', function ($scope, $routeParams, $location, Global, <%= entityName %>s) {
     $scope.global = Global;
 
     $scope.create = function() {
-        var <%= _.slugify(entityName) %> = new <%= entityName %>s({
+        var <%= slugName %> = new <%= entityName %>s({
             title: this.title,
             content: this.content
         });
-        <%= _.slugify(entityName) %>.$save(function(response) {
-            $location.path('<%= _.slugify(entityName) %>s/' + response._id);
+        <%= slugName %>.$save(function(response) {
+            $location.path('<%= slugName %>s/' + response._id);
         });
 
         this.title = '';
         this.content = '';
     };
 
-    $scope.remove = function(<%= _.slugify(entityName) %>) {
-        if (<%= _.slugify(entityName) %>) {
-            <%= _.slugify(entityName) %>.$remove();
+    $scope.remove = function(<%= slugName %>) {
+        if (<%= slugName %>) {
+            <%= slugName %>.$remove();
 
-            for (var i in $scope.<%= _.slugify(entityName) %>s) {
-                if ($scope.<%= _.slugify(entityName) %>s[i] === <%= _.slugify(entityName) %>) {
-                    $scope.<%= _.slugify(entityName) %>s.splice(i, 1);
+            for (var i in $scope.<%= slugName %>s) {
+                if ($scope.<%= slugName %>s[i] === <%= slugName %>) {
+                    $scope.<%= slugName %>s.splice(i, 1);
                 }
             }
         }
         else {
-            $scope.<%= _.slugify(entityName) %>.$remove();
-            $location.path('<%= _.slugify(entityName) %>s');
+            $scope.<%= slugName %>.$remove();
+            $location.path('<%= slugName %>s');
         }
     };
 
     $scope.update = function() {
-        var <%= _.slugify(entityName) %> = $scope.<%= _.slugify(entityName) %>;
-        if (!<%= _.slugify(entityName) %>.updated) {
-            <%= _.slugify(entityName) %>.updated = [];
+        var <%= slugName %> = $scope.<%= slugName %>;
+        if (!<%= slugName %>.updated) {
+            <%= slugName %>.updated = [];
         }
-        <%= _.slugify(entityName) %>.updated.push(new Date().getTime());
+        <%= slugName %>.updated.push(new Date().getTime());
 
-        <%= _.slugify(entityName) %>.$update(function() {
-            $location.path('<%= _.slugify(entityName) %>s/' + <%= _.slugify(entityName) %>._id);
+        <%= slugName %>.$update(function() {
+            $location.path('<%= slugName %>s/' + <%= slugName %>._id);
         });
     };
 
     $scope.find = function() {
-        <%= entityName %>s.query(function(<%= _.slugify(entityName) %>s) {
-            $scope.<%= _.slugify(entityName) %>s = <%= _.slugify(entityName) %>s;
+        <%= entityName %>s.query(function(<%= slugName %>s) {
+            $scope.<%= slugName %>s = <%= slugName %>s;
         });
     };
 
     $scope.findOne = function() {
         <%= entityName %>s.get({
-            <%= _.slugify(entityName) %>Id: $routeParams.<%= _.slugify(entityName) %>Id
-        }, function(<%= _.slugify(entityName) %>) {
-            $scope.<%= _.slugify(entityName) %> = <%= _.slugify(entityName) %>;
+            <%= slugName %>Id: $routeParams.<%= slugName %>Id
+        }, function(<%= slugName %>) {
+            $scope.<%= slugName %> = <%= slugName %>;
         });
     };
 }]);

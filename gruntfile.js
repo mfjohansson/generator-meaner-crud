@@ -35,7 +35,7 @@ grunt.initConfig({
           replacement: '<%= entityName ENDTAG'
         }, {
           pattern: /article/g,
-          replacement: '<%= _.slugify(entityName) ENDTAG'
+          replacement: '<%= slugName ENDTAG'
         }, {
           pattern: /ENDTAG/g,
           replacement: '%>'
