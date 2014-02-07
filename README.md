@@ -57,7 +57,7 @@ $ npm install -g mfjohansson/generator-meaner-crud
 Finally, initiate the generator:
 
 ```
-$ yo meancrud
+$ yo meaner-crud
 ```
 
 ### Getting To Know Yeoman
