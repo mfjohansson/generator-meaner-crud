@@ -1,11 +1,11 @@
 <section data-ng-controller="<%= entityName %>sController" data-ng-init="findOne()">
-    <span>{{<%= slugName %>.created | date:'medium'}}</span>/
+    <span>{{<%= slugName %>.created | date:'medium'}}</span> /
     <span>{{<%= slugName %>.user.name}}</span>
     <h2>{{<%= slugName %>.title}}</h2>
     <div data-ng-show="global.user._id == <%= slugName %>.user._id">
         <a class="btn" href="/#!/<%= slugName %>s/{{<%= slugName %>._id}}/edit">
         	<i class="glyphicon glyphicon-edit"></i>
-        </a> 
+        </a>
         <a class="btn" data-ng-click="remove();">
             <i class="glyphicon glyphicon-trash"></i>
         </a>
