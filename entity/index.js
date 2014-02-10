@@ -71,7 +71,7 @@ String.prototype.splice = function( idx, rem, s ) {
   }
 
 	// inject foot.jade
-  var footJadePath = "app/views/includes/foot.jade",
+  var footJadePath = "app/views/includes/foot.html",
 	footJadeFile = this.readFileAsString(footJadePath);
 	if(footJadeFile.indexOf('/' + sluggy + 's.js\'') === -1)
   {
