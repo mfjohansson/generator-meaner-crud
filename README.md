@@ -1,6 +1,6 @@
 # generator-meaner-crud
 
-_Based on how the MEAN project looked like at 2014-02-05._
+_Based on how the MEAN project looked like at 2014-02-13._
 
 A [Yeoman](http://yeoman.io) generator that's really just one subgenerator - "entity".  This will tie a new model type into the [Mean.io stack](https://github.com/linnovate/mean), using the same conventions as the "Articles example" (https://github.com/linnovate/mean/blob/master/app/models/article.js, etc).
 
@@ -25,7 +25,7 @@ It will also add code to the following files to hook everything together (note, 
 - public\js\app.js
 - config\routes.js
 - config\middlewares\authorization.js
-- app\views\includes\foot.jade
+- app\views\includes\foot.html
 - public\js\controllers\header.js
 
 ## Getting Started
