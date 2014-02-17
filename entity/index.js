@@ -73,10 +73,10 @@ EntityGenerator.prototype.files = function files() {
         footHTMLFile = this.readFileAsString(footHTMLPath);
     if (footHTMLFile.indexOf('/' + sluggy + 's.js\'') === -1) {
         var injectIndex = footHTMLFile.indexOf('<!-- Application Services -->') + '<!-- Application Services -->'.length;
-        footHTMLFile = footHTMLFile.splice(injectIndex, 0, '\n<script type=\"text/javascript\" src=\"/js/services/' + sluggy + 's.js\")');
+        footHTMLFile = footHTMLFile.splice(injectIndex, 0, '\n<script type=\"text/javascript\" src=\"/js/services/' + sluggy + 's.js\"></script>');
 
         injectIndex = footHTMLFile.indexOf('<!-- Application Controllers -->') + '<!-- Application Controllers -->'.length;
-        footHTMLFile = footHTMLFile.splice(injectIndex, 0, '\n<script type=\"text/javascript\" src=\"/js/controllers/' + sluggy + 's.js\")');
+        footHTMLFile = footHTMLFile.splice(injectIndex, 0, '\n<script type=\"text/javascript\" src=\"/js/controllers/' + sluggy + 's.js\"></script>');
 
         this.write(footHTMLPath, footHTMLFile);
     }
