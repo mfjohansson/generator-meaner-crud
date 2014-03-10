@@ -21,7 +21,7 @@ exports.<%= slugName %> = function(req, res, next, id) {
 };
 
 /**
- * Create a <%= slugName %>
+ * Create an <%= slugName %>
  */
 exports.create = function(req, res) {
     var <%= slugName %> = new <%= entityName %>(req.body);
@@ -40,7 +40,7 @@ exports.create = function(req, res) {
 };
 
 /**
- * Update a <%= slugName %>
+ * Update an <%= slugName %>
  */
 exports.update = function(req, res) {
     var <%= slugName %> = req.<%= slugName %>;

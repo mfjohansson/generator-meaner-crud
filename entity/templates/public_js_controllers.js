@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.<%= slugName %>s').controller('<%= entityName %>sController', ['$scope', '$routeParams', '$location', 'Global', '<%= entityName %>s', function ($scope, $routeParams, $location, Global, <%= entityName %>s) {
+angular.module('mean.<%= slugName %>s').controller('<%= entityName %>sController', ['$scope', '$stateParams', '$location', 'Global', '<%= entityName %>s', function ($scope, $stateParams, $location, Global, <%= entityName %>s) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -52,7 +52,7 @@ angular.module('mean.<%= slugName %>s').controller('<%= entityName %>sController
 
     $scope.findOne = function() {
         <%= entityName %>s.get({
-            <%= slugName %>Id: $routeParams.<%= slugName %>Id
+            <%= slugName %>Id: $stateParams.<%= slugName %>Id
         }, function(<%= slugName %>) {
             $scope.<%= slugName %> = <%= slugName %>;
         });
