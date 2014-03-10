@@ -26,8 +26,7 @@ module.exports = function(grunt) {
         'string-replace': {
             inline: {
                 files: {
-                    'entity/templates/': 'entity/templates/*',
-                    'README.md': 'README.md'
+                    'entity/templates/': 'entity/templates/*'
                 },
                 options: {
                     replacements: [{
@@ -45,7 +44,15 @@ module.exports = function(grunt) {
                     }, {
                         pattern: /ENDTAG/g,
                         replacement: '%>'
-                    }, {
+                    }]
+                }
+            },
+            inline2: {
+                files: {
+                    'README.md': 'README.md'
+                },
+                options: {
+                    replacements: [{
                         pattern: /MEAN project looked like at [\d]{4}-[\d]{2}-[\d]{2}/g,
                         replacement: 'MEAN project looked like at <%= grunt.template.today("yyyy-mm-dd") %>'
                     }]
